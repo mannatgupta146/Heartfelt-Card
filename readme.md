@@ -61,9 +61,7 @@ We welcome contributions! If you’d like to help enhance **Heartfelt Card**, fe
 - Include a feature for changing messages dynamically based on user input.
 - Help translate the messages into different languages.
 
-## License
-
-**Heartfelt Card** is open source and available under the [MIT License](LICENSE). You’re free to modify and distribute the code as you wish!
+**Heartfelt Card** is open source. You’re free to modify and distribute the code as you wish!
 
 ---
 
