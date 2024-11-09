@@ -1,0 +1,220 @@
+/* Set the colour and the position of the background and the elements */
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #c2deea;
+    transition: background-color 0.5s ease-in-out;
+}
+
+.container {
+    position: relative;
+}
+
+.message {
+    position: relative;
+    top: 50px;
+    cursor: pointer;
+    animation: up 3s ease-in-out infinite;
+}
+
+/* Style the envelope and the card */
+.envelope {
+    position: relative;
+    width: 300px;
+    height: 200px;
+    background-color: #f08080;
+    box-shadow: 0px 0px 15px rgba(240, 128, 128, 0.6); /* Add soft glow */
+}
+
+.envelope:before {
+    background-color: #f08080;
+    content: "";
+    position: absolute;
+    width: 212px;
+    height: 212px;
+    transform: rotate(45deg);
+    top: -105px;
+    left: 44px;
+    border-radius: 30px 0 0 0;
+}
+
+.card {
+    position: absolute;
+    background-color: #eae2b7;
+    width: 270px;
+    height: 170px;
+    top: 5px;
+    left: 15px;
+    box-shadow: -5px -5px 100px rgba(0, 0, 0, 0.4);
+    animation: sparkle 3s linear infinite; /* Sparkle animation */
+    transition: top 0.7s ease-in-out; /* Smooth slide transition */
+}
+
+.card:before {
+    content: "";
+    position: absolute;
+    border: 3px solid #003049;
+    border-style: dotted;
+    width: 240px;
+    height: 140px;
+    left: 12px;
+    top: 12px;
+}
+
+/* Initially hide the real message */
+.text {
+    position: absolute;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 28px;
+    text-align: center;
+    line-height: 25px;
+    top: 19px;
+    left: 55px;
+    color: #003049;
+}
+
+.initial-text {
+    display: block;
+    position: absolute;
+    font-family: 'Brush Script MT', cursive;
+    font-size: 28px;
+    text-align: center;
+    line-height: 25px;
+    top: 19px;
+    left: 55px;
+}
+
+.reveal-text {
+    display: none;
+}
+
+.heart {
+    background-color: #d62828;
+    display: inline-block;
+    height: 30px;
+    margin: 0 10px;
+    position: relative;
+    top: 110px;
+    left: 105px;
+    transform: rotate(-45deg);
+    width: 30px;
+    box-shadow: 0 0 8px rgba(214, 40, 40, 0.6); /* Add glow effect */
+    animation: heartbeat 0.8s ease-in-out infinite; /* Add heartbeat animation */
+}
+
+.heart:before,
+.heart:after {
+    content: "";
+    background-color: #d62828;
+    border-radius: 50%;
+    height: 30px;
+    position: absolute;
+    width: 30px;
+}
+
+.heart:before {
+    top: -15px;
+    left: 0;
+}
+
+.heart:after {
+    left: 15px;
+    top: 0;
+}
+
+.front {
+    position: absolute;
+    border-right: 180px solid #f4978e;
+    border-top: 95px solid transparent;
+    border-bottom: 100px solid transparent;
+    left: 120px;
+    top: 5px;
+    width: 0;
+    height: 0;
+    z-index: 10;
+}
+
+.front:before {
+    position: absolute;
+    content: "";
+    border-left: 300px solid #f8ad9d;
+    border-top: 195px solid transparent;
+    left: -120px;
+    top: -95px;
+    width: 0;
+    height: 0;
+}
+
+/* Add the shadow */
+.shadow {
+    position: absolute;
+    width: 330px;
+    height: 25px;
+    border-radius: 50%;
+    background-color: rgba(0, 0, 0, 0.3);
+    bottom: -80px; /* Adjust this to align properly */
+    left: -25px;
+    animation: scale 3s linear infinite;
+    z-index: -1; /* Ensures shadow stays behind envelope and card */
+}
+
+/* To move the envelope up and down */
+@keyframes up {
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-30px);
+    }
+}
+
+/* to scale the shadow */
+@keyframes scale {
+    0%,
+    100% {
+        transform: scaleX(1);
+    }
+    50% {
+        transform: scaleX(0.85);
+    }
+}
+
+/* Sparkle effect for the card */
+@keyframes sparkle {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(234, 226, 183, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(234, 226, 183, 0.8);
+    }
+}
+
+/* Heartbeat animation for the heart */
+@keyframes heartbeat {
+    0%, 100% {
+        transform: scale(1) rotate(-45deg);
+    }
+    50% {
+        transform: scale(1.2) rotate(-45deg);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .envelope {
+        width: 250px;
+        height: 180px;
+    }
+    .card {
+        width: 220px;
+        height: 140px;
+    }
+    .text {
+        font-size: 20px;
+        top: 10px;
+        left: 35px;
+    }
+}
